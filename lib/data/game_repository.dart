@@ -1,4 +1,5 @@
 import 'package:aos_scorecard/data/database_service.dart';
+import 'package:aos_scorecard/data/models/dame_details.dart';
 import 'package:aos_scorecard/data/models/game_dm.dart';
 import 'package:aos_scorecard/mappers/game_to_game_dm.dart';
 import 'package:aos_scorecard/models/game.dart';
@@ -75,6 +76,21 @@ class GameRepository {
     final List<Map<String, dynamic>> gameMaps = await db.query(tableName);
     return List.generate(gameMaps.length,
         (index) => GameToGameDM.fromGameDM(GameDM.fromMap(gameMaps[index])));
+  }
+
+  Future<List<GameDetails>> gamesDetails() async {
+    List<String> columnsToSelect = [
+      GameDMConstants.id,
+      GameDMConstants.created,
+      GameDMConstants.lastUpdated,
+      GameDMConstants.name,
+    ];
+
+    final Database db = await DatabaseService.getDb();
+    final List<Map<String, dynamic>> gameMaps =
+        await db.query(tableName, columns: columnsToSelect);
+    return List.generate(
+        gameMaps.length, (index) => GameDetails.fromMap(gameMaps[index]));
   }
 
   Future<Game?> loadGame(String id) async {
