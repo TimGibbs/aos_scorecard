@@ -21,11 +21,51 @@ Game _setBattleTacticComplete(Game game, SetBattleTacticCompleteAction action) {
     throw Exception("round must be between 1 and 5 inclusive");
   }
   if (action.playerSide == PlayerSide.attacker) {
-    game.attackerRounds[action.round - 1].wasBattleTacticCompleted =
-        action.battleTacticComplete;
+    switch (action.round) {
+      case 1:
+        game.attackerRound1.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 2:
+        game.attackerRound2.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 3:
+        game.attackerRound3.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 4:
+        game.attackerRound4.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 5:
+        game.attackerRound5.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+    }
   } else if (action.playerSide == PlayerSide.defender) {
-    game.defenderRounds[action.round - 1].wasBattleTacticCompleted =
-        action.battleTacticComplete;
+    switch (action.round) {
+      case 1:
+        game.defenderRound1.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 2:
+        game.defenderRound2.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 3:
+        game.defenderRound3.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 4:
+        game.defenderRound4.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+      case 5:
+        game.defenderRound5.wasBattleTacticCompleted =
+            action.battleTacticComplete;
+        break;
+    }
   }
   game.setUpdated();
   return game;

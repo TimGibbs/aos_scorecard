@@ -21,11 +21,41 @@ Game _setObjectivePoints(Game game, SetObjectivePointsAction action) {
     throw Exception("round must be between 1 and 5 inclusive");
   }
   if (action.playerSide == PlayerSide.attacker) {
-    game.attackerRounds[action.round - 1].objectivePoints =
-        action.objectivePoints;
+    switch (action.round) {
+      case 1:
+        game.attackerRound1.objectivePoints = action.objectivePoints;
+        break;
+      case 2:
+        game.attackerRound2.objectivePoints = action.objectivePoints;
+        break;
+      case 3:
+        game.attackerRound3.objectivePoints = action.objectivePoints;
+        break;
+      case 4:
+        game.attackerRound4.objectivePoints = action.objectivePoints;
+        break;
+      case 5:
+        game.attackerRound5.objectivePoints = action.objectivePoints;
+        break;
+    }
   } else if (action.playerSide == PlayerSide.defender) {
-    game.defenderRounds[action.round - 1].objectivePoints =
-        action.objectivePoints;
+    switch (action.round) {
+      case 1:
+        game.defenderRound1.objectivePoints = action.objectivePoints;
+        break;
+      case 2:
+        game.defenderRound2.objectivePoints = action.objectivePoints;
+        break;
+      case 3:
+        game.defenderRound3.objectivePoints = action.objectivePoints;
+        break;
+      case 4:
+        game.defenderRound4.objectivePoints = action.objectivePoints;
+        break;
+      case 5:
+        game.defenderRound5.objectivePoints = action.objectivePoints;
+        break;
+    }
   }
   game.setUpdated();
   return game;

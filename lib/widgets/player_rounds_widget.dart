@@ -12,7 +12,7 @@ class PlayerRoundsWidget extends StatelessWidget {
     color = playerside == PlayerSide.attacker ? Colors.red : Colors.blue;
   }
   final PlayerSide playerside;
-  late Color color;
+  late final Color color;
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, Game>(

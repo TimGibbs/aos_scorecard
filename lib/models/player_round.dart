@@ -21,14 +21,6 @@ class PlayerRound {
     required this.wentFirst,
   });
 
-  Map<String, dynamic> toJson() => {
-        'roundNumber': roundNumber,
-        'battleTactic': battleTactic,
-        'wasBattleTacticCompleted': wasBattleTacticCompleted,
-        'objectivePoints': objectivePoints,
-        'wentFirst': wentFirst
-      };
-
   int roundPoints() {
     int i = 0;
     if (wasBattleTacticCompleted) {

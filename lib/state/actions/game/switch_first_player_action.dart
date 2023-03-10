@@ -15,11 +15,25 @@ Game _switchFirstPlayer(Game game, SwitchFirstPlayerAction action) {
   if (roundNumber > 5 || roundNumber < 1) {
     throw Exception("roundNumber must be between 1 and 5 inclusive");
   }
-  for (var i = roundNumber; i < 6; i++) {
-    game.attackerRounds[i - 1].wentFirst =
-        !game.attackerRounds[i - 1].wentFirst;
-    game.defenderRounds[i - 1].wentFirst =
-        !game.defenderRounds[i - 1].wentFirst;
+  if (roundNumber <= 1) {
+    game.attackerRound1.wentFirst = !game.attackerRound1.wentFirst;
+    game.defenderRound1.wentFirst = !game.defenderRound1.wentFirst;
+  }
+  if (roundNumber <= 2) {
+    game.attackerRound2.wentFirst = !game.attackerRound2.wentFirst;
+    game.defenderRound2.wentFirst = !game.defenderRound2.wentFirst;
+  }
+  if (roundNumber <= 3) {
+    game.attackerRound3.wentFirst = !game.attackerRound3.wentFirst;
+    game.defenderRound3.wentFirst = !game.defenderRound3.wentFirst;
+  }
+  if (roundNumber <= 4) {
+    game.attackerRound4.wentFirst = !game.attackerRound4.wentFirst;
+    game.defenderRound4.wentFirst = !game.defenderRound4.wentFirst;
+  }
+  if (roundNumber <= 5) {
+    game.attackerRound5.wentFirst = !game.attackerRound5.wentFirst;
+    game.defenderRound5.wentFirst = !game.defenderRound5.wentFirst;
   }
   game.setUpdated();
   return game;

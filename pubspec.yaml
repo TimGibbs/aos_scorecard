@@ -39,6 +39,7 @@ dependencies:
   meta: ^1.8.0
   redux: ^5.0.0
   flutter_redux: ^0.10.0
+  sqflite: ^2.2.5
   path: ^1.8.2
 
 dev_dependencies:
