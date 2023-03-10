@@ -63,6 +63,13 @@ class GameRepository {
     await db.insert(tableName, dm.toMap());
   }
 
+  Future<void> updateGame(Game game) async {
+    final Database db = await DatabaseService.getDb();
+    final dm = GameToGameDM.toGameDM(game);
+    await db.update(tableName, dm.toMap(),
+        where: '${GameDMConstants.id} = \'${game.id}\'');
+  }
+
   Future<List<Game>> games() async {
     final Database db = await DatabaseService.getDb();
     final List<Map<String, dynamic>> gameMaps = await db.query(tableName);
@@ -73,7 +80,7 @@ class GameRepository {
   Future<Game?> loadGame(String id) async {
     final Database db = await DatabaseService.getDb();
     final List<Map<String, dynamic>> gameMaps =
-        await db.query(tableName, where: '${GameDMConstants.id} = \'id\'');
+        await db.query(tableName, where: '${GameDMConstants.id} = \'$id\'');
 
     if (gameMaps.isEmpty) return null;
     return GameToGameDM.fromGameDM(GameDM.fromMap(gameMaps[0]));
