@@ -4,16 +4,16 @@ import 'package:aos_scorecard/state/actions/game/name_game_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-class GameNameDialog extends StatefulWidget {
-  const GameNameDialog({
+class GameSaveDialog extends StatefulWidget {
+  const GameSaveDialog({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _GameNameDialogState();
+  State<StatefulWidget> createState() => _GameSaveDialogState();
 }
 
-class _GameNameDialogState extends State<GameNameDialog> {
+class _GameSaveDialogState extends State<GameSaveDialog> {
   final TextEditingController _nameController = TextEditingController();
 
   @override
@@ -38,11 +38,11 @@ class _GameNameDialogState extends State<GameNameDialog> {
       actions: [
         TextButton(
           child: const Text("Save"),
-          onPressed: () {
+          onPressed: () async {
             StoreProvider.of<AppState>(context)
                 .dispatch(NameGameAction(_nameController.value.text));
             var g = GameRepository();
-            g.addOrUpdate(StoreProvider.of<AppState>(context).state.game);
+            await g.addOrUpdate(StoreProvider.of<AppState>(context).state.game);
             Navigator.pop(context);
           },
         ),

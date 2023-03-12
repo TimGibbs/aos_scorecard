@@ -1,6 +1,7 @@
 import 'package:aos_scorecard/state/actions/game/new_game_action.dart';
 import 'package:aos_scorecard/models/app_state.dart';
-import 'package:aos_scorecard/widgets/game_name_dialog.dart';
+import 'package:aos_scorecard/widgets/game_load_dialog.dart';
+import 'package:aos_scorecard/widgets/game_save_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
@@ -24,12 +25,18 @@ class AosAppBar extends StatelessWidget implements PreferredSizeWidget {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return const GameNameDialog();
+                        return const GameSaveDialog();
                       })
                 },
             icon: const Icon(Icons.save)),
         IconButton(
-            onPressed: () => {},
+            onPressed: () => {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const GameLoadDialog();
+                      })
+                },
             icon: const Icon(Icons.drive_folder_upload_outlined)),
       ],
     );

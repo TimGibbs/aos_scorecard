@@ -1,8 +1,9 @@
 import 'package:aos_scorecard/data/database_service.dart';
-import 'package:aos_scorecard/data/models/dame_details.dart';
+import 'package:aos_scorecard/data/models/game_details.dart';
 import 'package:aos_scorecard/data/models/game_dm.dart';
 import 'package:aos_scorecard/mappers/game_to_game_dm.dart';
 import 'package:aos_scorecard/models/game.dart';
+import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:aos_scorecard/data/models/game_dm_constants.dart';
 
@@ -70,14 +71,16 @@ class GameRepository {
   Future<void> insertGame(Game game) async {
     final Database db = await DatabaseService.getDb();
     final dm = GameToGameDM.toGameDM(game);
-    await db.insert(tableName, dm.toMap());
+    var g = await db.insert(tableName, dm.toMap());
+    debugPrint('Inserted $g');
   }
 
   Future<void> updateGame(Game game) async {
     final Database db = await DatabaseService.getDb();
     final dm = GameToGameDM.toGameDM(game);
-    await db.update(tableName, dm.toMap(),
+    var g = await db.update(tableName, dm.toMap(),
         where: '${GameDMConstants.id} = \'${game.id}\'');
+    debugPrint('Updated $g');
   }
 
   Future<List<Game>> games() async {
@@ -98,6 +101,7 @@ class GameRepository {
     final Database db = await DatabaseService.getDb();
     final List<Map<String, dynamic>> gameMaps =
         await db.query(tableName, columns: columnsToSelect);
+    debugPrint(gameMaps.toString());
     return List.generate(
         gameMaps.length, (index) => GameDetails.fromMap(gameMaps[index]));
   }
