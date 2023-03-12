@@ -58,6 +58,15 @@ class GameRepository {
       '${GameDMConstants.defender5objectivePoints} INT, '
       '${GameDMConstants.defender5wentFirst} INT)';
 
+  Future<void> addOrUpdate(Game game) async {
+    var h = await loadGame(game.id);
+    if (h != null) {
+      await updateGame(game);
+    } else {
+      await insertGame(game);
+    }
+  }
+
   Future<void> insertGame(Game game) async {
     final Database db = await DatabaseService.getDb();
     final dm = GameToGameDM.toGameDM(game);

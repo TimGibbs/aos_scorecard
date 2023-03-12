@@ -26,7 +26,7 @@ class _GameWidgetState extends State<GameWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              game.id,
+              game.name ?? game.id,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             TextField(

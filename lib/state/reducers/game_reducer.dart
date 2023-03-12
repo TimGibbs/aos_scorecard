@@ -1,4 +1,5 @@
 import 'package:aos_scorecard/models/game.dart';
+import 'package:aos_scorecard/state/actions/game/name_game_action.dart';
 import 'package:aos_scorecard/state/actions/game/new_game_action.dart';
 import 'package:aos_scorecard/state/actions/game/change_game_action.dart';
 import 'package:aos_scorecard/state/actions/game/set_battle_tactic_action.dart';
@@ -16,4 +17,5 @@ final gameReducer = combineReducers<Game>([
   setBattleTacticCompleteReducer,
   setObjectivePoints,
   switchFirstPlayer,
+  nameGameReducer,
 ]);
