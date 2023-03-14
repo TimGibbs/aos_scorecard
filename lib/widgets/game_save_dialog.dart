@@ -1,5 +1,5 @@
 import 'package:aos_scorecard/data/game_repository.dart';
-import 'package:aos_scorecard/models/app_state.dart';
+import 'package:aos_scorecard/state/app_state.dart';
 import 'package:aos_scorecard/state/actions/game/name_game_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';

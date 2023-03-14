@@ -1,8 +1,9 @@
 import 'package:aos_scorecard/data/database_service.dart';
-import 'package:aos_scorecard/data/models/game_details.dart';
+import 'package:aos_scorecard/data/models/game_details_DM.dart';
 import 'package:aos_scorecard/data/models/game_dm.dart';
 import 'package:aos_scorecard/mappers/game_to_game_dm.dart';
 import 'package:aos_scorecard/models/game.dart';
+import 'package:aos_scorecard/models/game_details_vm.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:aos_scorecard/data/models/game_dm_constants.dart';
@@ -90,7 +91,7 @@ class GameRepository {
         (index) => GameToGameDM.fromGameDM(GameDM.fromMap(gameMaps[index])));
   }
 
-  Future<List<GameDetails>> gamesDetails() async {
+  Future<List<GameDetailsVM>> gamesDetails() async {
     List<String> columnsToSelect = [
       GameDMConstants.id,
       GameDMConstants.created,
@@ -103,7 +104,9 @@ class GameRepository {
         await db.query(tableName, columns: columnsToSelect);
     debugPrint(gameMaps.toString());
     return List.generate(
-        gameMaps.length, (index) => GameDetails.fromMap(gameMaps[index]));
+        gameMaps.length,
+        (index) =>
+            GameDetailsVM.fromDM(GameDetailsDM.fromMap(gameMaps[index])));
   }
 
   Future<Game?> loadGame(String id) async {

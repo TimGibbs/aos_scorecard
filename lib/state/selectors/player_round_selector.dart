@@ -1,6 +1,6 @@
 import 'package:aos_scorecard/models/player_round.dart';
 import 'package:aos_scorecard/models/player_side.dart';
-import 'package:aos_scorecard/models/app_state.dart';
+import 'package:aos_scorecard/state/app_state.dart';
 import 'package:redux/redux.dart';
 
 PlayerRound playerRoundSelector(

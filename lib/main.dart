@@ -1,4 +1,4 @@
-import 'package:aos_scorecard/models/app_state.dart';
+import 'package:aos_scorecard/state/app_state.dart';
 import 'package:aos_scorecard/state/reducers/app_state_reducer.dart';
 import 'package:aos_scorecard/widgets/aos_scorecard.dart';
 import 'package:flutter/material.dart';

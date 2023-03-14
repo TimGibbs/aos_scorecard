@@ -1,7 +1,7 @@
 import 'package:aos_scorecard/models/game.dart';
 import 'package:aos_scorecard/models/player_side.dart';
 import 'package:aos_scorecard/state/actions/game/set_battleplan_action.dart';
-import 'package:aos_scorecard/models/app_state.dart';
+import 'package:aos_scorecard/state/app_state.dart';
 import 'package:aos_scorecard/state/selectors/game_selector.dart';
 import 'package:aos_scorecard/widgets/player_rounds_widget.dart';
 import 'package:flutter/material.dart';

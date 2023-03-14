@@ -4,7 +4,7 @@ import 'package:aos_scorecard/state/actions/game/set_battle_tactic_action.dart';
 import 'package:aos_scorecard/state/actions/game/set_battle_tactic_complete_action.dart';
 import 'package:aos_scorecard/state/actions/game/set_objective_points_action.dart';
 import 'package:aos_scorecard/state/actions/game/switch_first_player_action.dart';
-import 'package:aos_scorecard/models/app_state.dart';
+import 'package:aos_scorecard/state/app_state.dart';
 import 'package:aos_scorecard/state/selectors/player_round_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

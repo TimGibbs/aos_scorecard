@@ -4,8 +4,9 @@ import 'package:aos_scorecard/models/game.dart';
 @immutable
 class AppState {
   late final Game game;
+  late final String gameToLoad;
 
-  AppState({Game? game}) {
+  AppState({Game? game, this.gameToLoad = ''}) {
     this.game = game ?? Game.newGame();
   }
 
@@ -19,10 +20,11 @@ class AppState {
       identical(this, other) ||
       other is AppState &&
           runtimeType == other.runtimeType &&
-          game == other.game;
+          game == other.game &&
+          gameToLoad == other.gameToLoad;
 
   @override
   String toString() {
-    return 'AppState{ game: $game }';
+    return 'AppState{ game: $game, gameToLoad: $gameToLoad }';
   }
 }
