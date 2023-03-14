@@ -1,5 +1,10 @@
 import 'package:aos_scorecard/data/game_repository.dart';
+import 'package:aos_scorecard/state/actions/game/change_game_action.dart';
+import 'package:aos_scorecard/state/app_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+
+import 'game_load.dart';
 
 class GameLoadDialog extends StatefulWidget {
   const GameLoadDialog({
@@ -26,12 +31,7 @@ class _GameLoadDialogState extends State<GameLoadDialog> {
             future: g.gamesDetails(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (context, index) {
-                    return Text(snapshot.data![index].title);
-                  },
-                );
+                return GameLoad(games: snapshot.data ?? []);
               } else if (snapshot.hasError) {
                 throw Exception("uh oh");
               } else {
@@ -42,7 +42,13 @@ class _GameLoadDialogState extends State<GameLoadDialog> {
       actions: [
         TextButton(
           child: const Text("Load"),
-          onPressed: () {
+          onPressed: () async {
+            var g = GameRepository();
+            var game = await g
+                .loadGame(StoreProvider.of<AppState>(context).state.gameToLoad);
+            // ignore: use_build_context_synchronously
+            StoreProvider.of<AppState>(context)
+                .dispatch(ChangeGameAction(game!));
             Navigator.pop(context);
           },
         ),

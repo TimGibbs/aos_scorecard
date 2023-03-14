@@ -1,5 +1,5 @@
 import 'package:aos_scorecard/data/database_service.dart';
-import 'package:aos_scorecard/data/models/game_details_DM.dart';
+import 'package:aos_scorecard/data/models/game_details_dm.dart';
 import 'package:aos_scorecard/data/models/game_dm.dart';
 import 'package:aos_scorecard/mappers/game_to_game_dm.dart';
 import 'package:aos_scorecard/models/game.dart';
@@ -113,7 +113,7 @@ class GameRepository {
     final Database db = await DatabaseService.getDb();
     final List<Map<String, dynamic>> gameMaps =
         await db.query(tableName, where: '${GameDMConstants.id} = \'$id\'');
-
+    debugPrint(gameMaps.toString());
     if (gameMaps.isEmpty) return null;
     return GameToGameDM.fromGameDM(GameDM.fromMap(gameMaps[0]));
   }

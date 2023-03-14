@@ -108,9 +108,9 @@ class GameDM {
           lastUpdated:
               DateTime.parse(map[GameDMConstants.lastUpdated] as String),
           name: map[GameDMConstants.name] as String,
-          battlePlan: map[GameDMConstants.battlePlan] as String,
+          battlePlan: map[GameDMConstants.battlePlan] as String?,
           attacker1battleTactic:
-              map[GameDMConstants.attacker1battleTactic] as String,
+              map[GameDMConstants.attacker1battleTactic] as String?,
           attacker1wasBattleTacticCompleted:
               (map[GameDMConstants.attacker1wasBattleTacticCompleted] as int) !=
                   0,
@@ -119,7 +119,7 @@ class GameDM {
           attacker1wentFirst:
               (map[GameDMConstants.attacker1wentFirst] as int) != 0,
           attacker2battleTactic:
-              map[GameDMConstants.attacker2battleTactic] as String,
+              map[GameDMConstants.attacker2battleTactic] as String?,
           attacker2wasBattleTacticCompleted:
               (map[GameDMConstants.attacker2wasBattleTacticCompleted] as int) !=
                   0,
@@ -128,7 +128,7 @@ class GameDM {
           attacker2wentFirst:
               (map[GameDMConstants.attacker2wentFirst] as int) != 0,
           attacker3battleTactic:
-              map[GameDMConstants.attacker3battleTactic] as String,
+              map[GameDMConstants.attacker3battleTactic] as String?,
           attacker3wasBattleTacticCompleted:
               (map[GameDMConstants.attacker3wasBattleTacticCompleted] as int) !=
                   0,
@@ -137,7 +137,7 @@ class GameDM {
           attacker3wentFirst:
               (map[GameDMConstants.attacker3wentFirst] as int) != 0,
           attacker4battleTactic:
-              map[GameDMConstants.attacker4battleTactic] as String,
+              map[GameDMConstants.attacker4battleTactic] as String?,
           attacker4wasBattleTacticCompleted:
               (map[GameDMConstants.attacker4wasBattleTacticCompleted] as int) !=
                   0,
@@ -146,7 +146,7 @@ class GameDM {
           attacker4wentFirst:
               (map[GameDMConstants.attacker4wentFirst] as int) != 0,
           attacker5battleTactic:
-              map[GameDMConstants.attacker5battleTactic] as String,
+              map[GameDMConstants.attacker5battleTactic] as String?,
           attacker5wasBattleTacticCompleted:
               (map[GameDMConstants.attacker5wasBattleTacticCompleted] as int) !=
                   0,
@@ -155,7 +155,7 @@ class GameDM {
           attacker5wentFirst:
               (map[GameDMConstants.attacker5wentFirst] as int) != 0,
           defender1battleTactic:
-              map[GameDMConstants.defender1battleTactic] as String,
+              map[GameDMConstants.defender1battleTactic] as String?,
           defender1wasBattleTacticCompleted:
               (map[GameDMConstants.defender1wasBattleTacticCompleted] as int) !=
                   0,
@@ -164,7 +164,7 @@ class GameDM {
           defender1wentFirst:
               (map[GameDMConstants.defender1wentFirst] as int) != 0,
           defender2battleTactic:
-              map[GameDMConstants.defender2battleTactic] as String,
+              map[GameDMConstants.defender2battleTactic] as String?,
           defender2wasBattleTacticCompleted:
               (map[GameDMConstants.defender2wasBattleTacticCompleted] as int) !=
                   0,
@@ -173,7 +173,7 @@ class GameDM {
           defender2wentFirst:
               (map[GameDMConstants.defender2wentFirst] as int) != 0,
           defender3battleTactic:
-              map[GameDMConstants.defender3battleTactic] as String,
+              map[GameDMConstants.defender3battleTactic] as String?,
           defender3wasBattleTacticCompleted:
               (map[GameDMConstants.defender3wasBattleTacticCompleted] as int) !=
                   0,
@@ -182,7 +182,7 @@ class GameDM {
           defender3wentFirst:
               (map[GameDMConstants.defender3wentFirst] as int) != 0,
           defender4battleTactic:
-              map[GameDMConstants.defender4battleTactic] as String,
+              map[GameDMConstants.defender4battleTactic] as String?,
           defender4wasBattleTacticCompleted:
               (map[GameDMConstants.defender4wasBattleTacticCompleted] as int) !=
                   0,
@@ -191,7 +191,7 @@ class GameDM {
           defender4wentFirst:
               (map[GameDMConstants.defender4wentFirst] as int) != 0,
           defender5battleTactic:
-              map[GameDMConstants.defender5battleTactic] as String,
+              map[GameDMConstants.defender5battleTactic] as String?,
           defender5wasBattleTacticCompleted:
               (map[GameDMConstants.defender5wasBattleTacticCompleted] as int) !=
                   0,

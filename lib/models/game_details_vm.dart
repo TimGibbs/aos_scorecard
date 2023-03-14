@@ -1,4 +1,4 @@
-import 'package:aos_scorecard/data/models/game_details_DM.dart';
+import 'package:aos_scorecard/data/models/game_details_dm.dart';
 import 'package:aos_scorecard/extensions/pretty_format.dart';
 
 class GameDetailsVM {
