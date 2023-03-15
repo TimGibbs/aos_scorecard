@@ -25,7 +25,7 @@ class DatabaseService {
 
   static Future<void> _onUpgrade(
       Database db, int oldVersion, int newVersion) async {
-    if (oldVersion == 1 && newVersion == 2) {
+    if (oldVersion < 2) {
       // you can execute drop table and create table
       db.execute(
           'ALTER TABLE ${GameRepository.tableName} ADD COLUMN ${GameDMConstants.attackerName} TEXT;');
