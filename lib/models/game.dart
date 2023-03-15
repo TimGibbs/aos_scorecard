@@ -1,3 +1,4 @@
+import 'package:aos_scorecard/data/models/game_result.dart';
 import 'package:aos_scorecard/models/player_round.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 
@@ -9,6 +10,9 @@ class Game {
   late DateTime lastUpdated;
   String? name;
   String? battlePlan;
+  String? attackerName;
+  String? defenderName;
+  late GameResult gameResult;
   late final PlayerRound attackerRound1;
   late final PlayerRound attackerRound2;
   late final PlayerRound attackerRound3;
@@ -26,6 +30,7 @@ class Game {
     lastUpdated = created;
     gameType = 'AOS';
     gameVersion = '3.3';
+    gameResult = GameResult.unset;
     attackerRound1 = PlayerRound(roundNumber: 1, wentFirst: true);
     attackerRound2 = PlayerRound(roundNumber: 2, wentFirst: true);
     attackerRound3 = PlayerRound(roundNumber: 3, wentFirst: true);
@@ -46,6 +51,9 @@ class Game {
     required this.lastUpdated,
     required this.name,
     required this.battlePlan,
+    required this.attackerName,
+    required this.defenderName,
+    required this.gameResult,
     required this.attackerRound1,
     required this.attackerRound2,
     required this.attackerRound3,

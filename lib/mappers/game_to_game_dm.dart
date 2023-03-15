@@ -12,6 +12,9 @@ class GameToGameDM {
         lastUpdated: game.lastUpdated,
         name: game.name!,
         battlePlan: game.battlePlan,
+        attackerName: game.attackerName,
+        defenderName: game.defenderName,
+        gameResult: game.gameResult,
         attacker1battleTactic: game.attackerRound1.battleTactic,
         attacker1wasBattleTacticCompleted:
             game.attackerRound1.wasBattleTacticCompleted,
@@ -73,6 +76,9 @@ class GameToGameDM {
         lastUpdated: gameDM.lastUpdated,
         name: gameDM.name,
         battlePlan: gameDM.battlePlan,
+        attackerName: gameDM.attackerName,
+        defenderName: gameDM.defenderName,
+        gameResult: gameDM.gameResult,
         attackerRound1: PlayerRound.existing(
             roundNumber: 1,
             battleTactic: gameDM.attacker1battleTactic,

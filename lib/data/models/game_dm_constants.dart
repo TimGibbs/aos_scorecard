@@ -6,6 +6,9 @@ class GameDMConstants {
   static const String lastUpdated = 'lastUpdated';
   static const String name = 'name';
   static const String battlePlan = 'battlePlan';
+  static const String attackerName = 'attackerName';
+  static const String defenderName = 'defenderName';
+  static const String gameResult = 'gameResult';
   static const String attacker1battleTactic = 'attacker1battleTactic';
   static const String attacker1wasBattleTacticCompleted =
       'attacker1wasBattleTacticCompleted';

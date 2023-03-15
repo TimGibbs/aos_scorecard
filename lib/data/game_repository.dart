@@ -58,7 +58,10 @@ class GameRepository {
       '${GameDMConstants.defender5battleTactic} TEXT, '
       '${GameDMConstants.defender5wasBattleTacticCompleted} INT, '
       '${GameDMConstants.defender5objectivePoints} INT, '
-      '${GameDMConstants.defender5wentFirst} INT)';
+      '${GameDMConstants.defender5wentFirst} INT, '
+      '${GameDMConstants.attackerName} TEXT, '
+      '${GameDMConstants.defenderName} TEXT, '
+      '${GameDMConstants.gameResult} TEXT)';
 
   Future<void> addOrUpdate(Game game) async {
     var h = await loadGame(game.id);

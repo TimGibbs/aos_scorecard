@@ -1,4 +1,5 @@
 import 'package:aos_scorecard/data/models/game_dm_constants.dart';
+import 'package:aos_scorecard/data/models/game_result.dart';
 
 class GameDM {
   final String id;
@@ -8,7 +9,9 @@ class GameDM {
   final DateTime lastUpdated;
   final String name;
   final String? battlePlan;
-
+  final String? attackerName;
+  final String? defenderName;
+  final GameResult gameResult;
   final String? attacker1battleTactic;
   final bool attacker1wasBattleTacticCompleted;
   final int attacker1objectivePoints;
@@ -58,6 +61,9 @@ class GameDM {
       required this.lastUpdated,
       required this.name,
       required this.battlePlan,
+      required this.attackerName,
+      required this.defenderName,
+      required this.gameResult,
       required this.attacker1battleTactic,
       required this.attacker1wasBattleTacticCompleted,
       required this.attacker1objectivePoints,
@@ -109,6 +115,10 @@ class GameDM {
               DateTime.parse(map[GameDMConstants.lastUpdated] as String),
           name: map[GameDMConstants.name] as String,
           battlePlan: map[GameDMConstants.battlePlan] as String?,
+          attackerName: map[GameDMConstants.attackerName] as String?,
+          defenderName: map[GameDMConstants.defenderName] as String?,
+          gameResult: GameResult.values
+              .byName(map[GameDMConstants.gameResult] as String? ?? "unset"),
           attacker1battleTactic:
               map[GameDMConstants.attacker1battleTactic] as String?,
           attacker1wasBattleTacticCompleted:
@@ -260,6 +270,9 @@ class GameDM {
           defender5wasBattleTacticCompleted ? 1 : 0,
       GameDMConstants.defender5objectivePoints: defender5objectivePoints,
       GameDMConstants.defender5wentFirst: defender5wentFirst ? 1 : 0,
+      GameDMConstants.attackerName: attackerName,
+      GameDMConstants.defenderName: defenderName,
+      GameDMConstants.gameResult: gameResult.name,
     };
   }
 }
