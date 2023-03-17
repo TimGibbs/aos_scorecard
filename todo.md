@@ -1,7 +1,7 @@
 maj/min/draw
-player names
-game version drop down
+game version on new game
 battleplan drop down
 battle tactic drop down
 custom battle tactics
 new game dialog
+empty on no game
