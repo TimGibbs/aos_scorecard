@@ -3,6 +3,7 @@ import 'package:aos_scorecard/models/player_side.dart';
 import 'package:aos_scorecard/state/actions/game/set_battleplan_action.dart';
 import 'package:aos_scorecard/state/app_state.dart';
 import 'package:aos_scorecard/state/selectors/game_selector.dart';
+import 'package:aos_scorecard/widgets/battleplan_dialog.dart';
 import 'package:aos_scorecard/widgets/player_rounds_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -29,15 +30,18 @@ class _GameWidgetState extends State<GameWidget> {
               game.name ?? game.id,
               style: Theme.of(context).textTheme.bodySmall,
             ),
-            TextField(
-                controller: _battleplanController,
-                textAlign: TextAlign.center,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Battle Plan',
-                ),
-                onSubmitted: (value) => StoreProvider.of<AppState>(context)
-                    .dispatch(SetBattlePlanAction(value))),
+            TextButton(
+              onPressed: () => {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return BattlePlanDialog(
+                        gameVersion: game.gameVersion,
+                      );
+                    })
+              },
+              child: new Text(game.battlePlan ?? 'Battle Plan'),
+            ),
             PlayerRoundsWidget(
               playerside: PlayerSide.attacker,
             ),
